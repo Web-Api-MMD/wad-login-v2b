@@ -5,6 +5,7 @@
 
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 // previously Login from ../models/login
 const Account = require('../models/account');
@@ -21,6 +22,9 @@ router.post('/login', async (req, res) => {
         const accountObj = new Account(req.body);
         // previously const user = await Login.readByEmail(loginObj)
         const account = await Account.checkCredentials(accountObj);
+
+        // generate token with jwt
+        
 
         // previously user
         return res.send(JSON.stringify(account));
