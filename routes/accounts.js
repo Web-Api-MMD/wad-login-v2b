@@ -6,6 +6,9 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const config = require('config');
+
+const secret = config.get('jwt_secret_key');
 
 // previously Login from ../models/login
 const Account = require('../models/account');
@@ -24,8 +27,9 @@ router.post('/login', async (req, res) => {
         const account = await Account.checkCredentials(accountObj);
 
         // generate token with jwt
+        const token = await jwt.sign(account, secret);
+        res.setHeader('x-authenticate-token', token);
         
-
         // previously user
         return res.send(JSON.stringify(account));
 
