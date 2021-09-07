@@ -13,6 +13,7 @@ const setContentTypeJSON = require('./middleware/setResponseHeader');
 const accounts = require('./routes/accounts');
 const dummies = require('./routes/dummies');
 
+
 app.use(express.json());
 app.use(cors());
 app.use(setContentTypeJSON);
