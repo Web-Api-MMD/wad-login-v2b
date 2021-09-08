@@ -4,9 +4,13 @@ body {
 section {
 
 }
-
+/* 
 #logoutBtn {
     position: absolute;
     bottom: 1em;
     left: 1em;
+} */
+
+.hidden {
+    display: none;
 }
