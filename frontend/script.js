@@ -9,6 +9,7 @@ const privateArticle = document.querySelector('#privateArticle');
 
 const APIaddress = 'http://127.0.0.1:2090';
 
+// log in
 loginBtn.addEventListener('click', (e) => {
     if(userEmail.value && userPassword.value) {
         const payload = {
@@ -40,4 +41,22 @@ loginBtn.addEventListener('click', (e) => {
     } else {
         alert('Please enter user email and password');
     }
+});
+
+// log out
+logoutBtn.addEventListener('click', (e) => {
+    window.localStorage.removeItem('x-authenticate-token');
+    window.localStorage.removeItem('accountInfo');
+
+    console.log('Account logged out yo');
+});
+
+// on page load
+window.addEventListener('load', (e) => {
+    // part to render public article
+    
+
+    // part to render private article if logged in
+
+    // render the login / logout divs on the condition of being logged in or out
 });
