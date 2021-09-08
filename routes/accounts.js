@@ -15,7 +15,8 @@ const Account = require('../models/account');
 
 // previously '/'
 router.post('/login', async (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
+    // res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Expose-Headers', 'x-authenticate-token');
     try {
         // previously Login.validate(req.body)
         const { error } = Account.validate(req.body);
