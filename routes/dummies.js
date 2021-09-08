@@ -9,7 +9,7 @@ router.get('/public', (req, res) => {
 });
 
 router.get('/private', [auth], (req, res) => { // [auth, ...] middleware is set her. just use an array with one item if only one piece of middleware
-    res.send(JSON.stringify({message: 'This is a private endpoint. Only members allowed yo.'}));
+    res.send(JSON.stringify({message: 'This is a private endpoint. Only members allowed yo.', account: req.account})); // req.account exists becuase it "went through" the auth
 });
 
 module.exports = router;
